@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -11,12 +11,16 @@
 
 <body>
     <main class="container">
-        <h1>Pepa La Viajera</h1>
+        <h1 >Pepa La Viajera</h1>
         <label for="citySelector">Elige una localidad:</label>
         <select id="citySelector">
             <option value="">-----</option>
             <option value="palamos">Palamós</option>
             <option value="blanes">Blanes</option>
+        </select>
+        <select id="sort">
+            <option value="1">Precio ASC</option>
+            <option value="-1">Precio DESC</option>
         </select>
         <div id="cityInfo" style="display: none;">
             <h2 id="cityNombre"></h2>
@@ -28,11 +32,10 @@
         <section id="accomodationsInfo" style="display: none;">
         <h3>Hemos encontrado un total de <strong id="numAccomodations"></strong> alojamientos para la ciudad seleccionada
         </h3>
-        <div  id="accomodations"></div>
+        <div id="accomodations"></div>
         <!-- Aquí deben aparecer todos los hoteles disponibles de la ciudad elegida de la base de datos de BravaBook-->
          </section>
     </main>
     <script src="script.js"></script>
 </body>
-
 </html>
