@@ -82,15 +82,19 @@ function createNodeApartments(apartments) {
 }
 
 // Evento Change
-citySelector.addEventListener("change", async (event) => {
-  const data = await obtenerDatos(event.target.value);
-  updateCityInfo(event.target.value);
+citySelector.addEventListener("change", (event) => {
+  renderApartmentsForCity(event.target.value);
+});
+
+sortSelector.addEventListener("change", () => {
+  renderApartmentsForCity(citySelector.value);
+});
+
+
+async function renderApartmentsForCity(cityKey) {
+  updateCityInfo(cityKey);
+  const data = await obtenerDatos(cityKey);
+  document.getElementById("accomodations").innerHTML = '';
   document.getElementById("numAccomodations").textContent = data.length;
-  createNodeApartments(data, 1);
-});
-
-sortSelector.addEventListener("change", async (event) => {
-    document.getElementById("accomodations").innerHTML = '';
-    citySelector.dispatchEvent(new Event('change'));
-
-});
+  createNodeApartments(data);
+}
